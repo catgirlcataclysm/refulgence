@@ -19,7 +19,6 @@ import net.minecraft.util.Identifier;
 
 import dev.kaitlynyaa.refulgence.common.block.jar;
 
-
 public class Refulgence implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("Refulgence");	
 
@@ -38,27 +37,44 @@ public class Refulgence implements ModInitializer {
 		.hardness(0.25f)
 	);
 
+	public static final Block redstoneJar = new jar(QuiltBlockSettings.create()
+		.sounds(BlockSoundGroup.BONE)
+		.collidable(true)
+		.opaque(false)
+		.luminance(7)
+		.hardness(0.25f)
+	);
+
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Refulgence loading...");
 		
 		Registry.register(Registries.BLOCK, new Identifier(mod.metadata().id(), "jar"), jar);
-		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "jar"), new BlockItem(jar, new QuiltItemSettings()
-			.maxCount(8)
-		));
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL_BLOCKS).register(entries -> {
-			entries.addItem(jar.asItem());
-		});
-		BlockRenderLayerMap.put(RenderLayer.getCutout(), jar);
+    	Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "jar"), new BlockItem(jar, new QuiltItemSettings()
+    		.maxCount(8)
+    	));
+    	ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL_BLOCKS).register(entries -> {
+    		entries.addItem(jar.asItem());
+    	});
+    	BlockRenderLayerMap.put(RenderLayer.getCutout(), jar);
+    	
+        Registry.register(Registries.BLOCK, new Identifier(mod.metadata().id(), "glowstone_jar"), glowstoneJar);		
+    	Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "glowstone_jar"), new BlockItem(glowstoneJar, new QuiltItemSettings()
+    		.maxCount(1)
+    	));
+    	ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL_BLOCKS).register(entries -> {
+    		entries.addItem(glowstoneJar.asItem());
+    	});
+    	BlockRenderLayerMap.put(RenderLayer.getCutout(), glowstoneJar);
 
-		Registry.register(Registries.BLOCK, new Identifier(mod.metadata().id(), "glowstone_jar"), glowstoneJar);		
-		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "glowstone_jar"), new BlockItem(glowstoneJar, new QuiltItemSettings()
-			.maxCount(1)
-		));
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL_BLOCKS).register(entries -> {
-			entries.addItem(glowstoneJar.asItem());
-		});
-		BlockRenderLayerMap.put(RenderLayer.getCutout(), glowstoneJar);
+		Registry.register(Registries.BLOCK, new Identifier(mod.metadata().id(), "redstone_jar"), redstoneJar);		
+    	Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "redstone_jar"), new BlockItem(redstoneJar, new QuiltItemSettings()
+    		.maxCount(1)
+    	));
+    	ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL_BLOCKS).register(entries -> {
+    		entries.addItem(redstoneJar.asItem());
+    	});
+    	BlockRenderLayerMap.put(RenderLayer.getCutout(), redstoneJar);
 
 		LOGGER.info("Refulgence loaded");
 	}
