@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "refulgence:jar"
+        },
+        {
+            "item": "minecraft:glowstone_dust"
+        }
+    ],
+    "result": {
+        "item": "refulgence:glowstone_jar",
+        "count": 1
+    },
+    "group": "lighting_jars"
+}
