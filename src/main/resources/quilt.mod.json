@@ -6,14 +6,13 @@
 		"version": "${version}",
 		"metadata": {
 			"name": "Refulgence",
-			"description": "A short description of your mod.",
+			"description": "A small Minecraft mod focused on adding different lighting blocks that fit the vanilla aesthetic.",
 			"contributors": {
 				"Your name here": "Kaitlyn"
 			},
 			"contact": {
-				"homepage": "https://example.com/",
-				"issues": "https://github.com/QuiltMC/quilt-template-mod/issues",
-				"sources": "https://github.com/QuiltMC/quilt-template-mod"
+				"issues": "https://github.com/kaitlynkittyy/refulgence/issues",
+				"sources": "https://github.com/kaitlynkittyy/refulgence"
 			},
 			"icon": "assets/refulgence/icon.png"
 		},

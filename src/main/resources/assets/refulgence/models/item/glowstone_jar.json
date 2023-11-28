@@ -1,6 +1,3 @@
 {
-    "parent": "item/generated",
-    "textures": {
-		"layer0": "refulgence:item/glowstone_jar"
-	}
+    "parent": "block/glowstone_jar"
 }
